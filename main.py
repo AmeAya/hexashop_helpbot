@@ -31,9 +31,8 @@ def sendRequest(message):
         data = {
             'email': email,
             'text': text,
-            'date': str(datetime.now())
         }
-        requests.post(url=os.environ.get('BACK_URL'), json=data)
+        response = requests.post(url=os.environ.get('BACK_URL'), data=data)
         bot.send_message(message.chat.id, 'Ваше сообщение принято\n\nПожалуйста дождитесь ответа на электронную почту. '
                                           'Мы обязательно поможем вам в течении 24-х часов!'
                                           'Спасибо за обращение!')
